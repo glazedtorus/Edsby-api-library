@@ -28,7 +28,7 @@ class Edsby():
        else:
            self.session = self.getSession() 
        if 'username' in kwargs & 'password' in kwargs:
-        self.login (username = kwargs['username'], password = kwargs['password'])
+        self.login(username = kwargs['username'], password = kwargs['password'])
     
     def login(self, **kwargs):
         self.authData = self.getauthData((kwargs['username'], kwargs['password']))
@@ -75,7 +75,10 @@ class Edsby():
     def parseInstanceMetadata(self):
             rawPage = requests.get('https://'+self.edsbyHost,headers=self.getHeaders()).text
             meta = rawPage[rawPage.find('openSesame(')+12:] 
-            meta = meta[:meta.find('}')].split(',') 
+            if meta == -1:
+                raise Exception("There was an error parsing the metadata")
+            else:
+                meta = meta[:meta.find('}')].split(',') 
 
             metaTuples = list()
             for prop in meta: 
