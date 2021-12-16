@@ -67,3 +67,11 @@ def getinstanceMetadata(self):
 
 def getSession(self):
     return requests.Session.get('https://' + self.edsbyHost + "edsby.com/core/login"+str(self.instanceMeta['nid'])+"?xds=loginform&editable=true",headers=self.getHeaders())
+
+def endSession(self):
+    self.session = self.getSession()
+
+def clearData(self):
+    self.authdata = None
+    self.studentdata = None
+    return True
