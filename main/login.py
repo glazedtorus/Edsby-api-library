@@ -8,7 +8,7 @@ def login(self, **kwargs):
     return True
 
 def getauthdata(self, logindata):
-    self.authdata = requests.get('https://' + self.edsbyhost + '.edsby.com/core/node.json/' + str(self.instanceMeta['nid']) + '?xds=fetchcryptdata&type=Plaintext-LeapLDAP', cookies=self.getCookies(), headers=self.getHeaders()).json()["slices"][0]
+    self.authdata = requests.get('https://' + self.serverAddress + '.edsby.com/core/node.json/' + str(self.instanceMeta['nid']) + '?xds=fetchcryptdata&type=Plaintext-LeapLDAP', cookies=self.getCookies(), headers=self.getHeaders()).json()["slices"][0]
     return {
         '_formkey': self.authData["_formkey"],
         'sauthdata': self.authData['data']["sauthdata"],

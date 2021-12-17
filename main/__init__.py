@@ -3,13 +3,13 @@ import os
 
 class Edsby():
     def __init__(self, **kwargs):
-       self.edsbyHost = kwargs['host'] 
+       self.serverAddress = kwargs['host'] 
        
        if 'headers' in kwargs:
            self.headers = kwargs['headers']
        else:
            self.headers = { 
-                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36','referer' : 'https://' + self.edsbyHost + '/',
+                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36','referer' : 'https://' + self.serverAddress + '/',
                 'accept': '*/*',
                 'accept-language':'en-US,en',
                 'dnt': '1',
