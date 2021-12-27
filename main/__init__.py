@@ -1,5 +1,14 @@
 import sys
-import os
+
+#for help use -h command line argument
+if sys.argv[1]=="-h"or"-help"or"--h"or"--help":
+    print("usage: <python __init__.py [-h]> or  <from__init__.py import Edsby>")
+    print("optional args:")
+    print("-h,--h,-help,--help : prints this help message")
+    print("description: ")
+    print("This is a python library to interact with the Edsby student database directly from Python to help build useful apps around it simpler, faster and easier.")
+    print("notice: ")
+    print("To pass the necessary parameters to the Edsby class(in this file), you can pass identifiers like your username, password, session id, and more (in dict format) as needed for your session.")
 
 class Edsby():
     def __init__(self, **kwargs):
