@@ -19,7 +19,6 @@ def getauthdata(self, logindata):
         'remember' : 1
     }
 
-
 def sendauthenticationData(self):
     studentData = requests.post('https://'+self.edsbyHost+'.edsby.com/core/login/'+str(self.instanceMeta['nid'])+'?xds=loginform&editable=true',data=self.authData,cookies=self.getCookies(),headers=self.getHeaders())
     cookies = {
